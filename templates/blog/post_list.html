@@ -1,26 +1,28 @@
+{% load static %}
 
-<!-- blog/templates/blog/post_list.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post List</title>
-</head>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
+    <title>Your Blog Title</title>
+</head> 
 <body>
-    
-<h1>Blog Posts</h1>
-    <ul>
-        {% for post in posts %}
-            <li>
-                <h1>{{post.title}}</h1>
-                <img src="{{post.image.url}}" alt="pst_image">
-                <p>{{ post.content }}</p>
-                <p>Category: {{ post.category }}</p>
-                <p>Published on: {{ post.created_at }}</p>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <h1>Blog Posts</h1>
+        <ul>
+            {% for post in posts %}
+                <li class="post">
+                    <h1>{{ post.title }}</h1>
+                    <img src="{{ post.image.url }}" alt="post_image">
+                    <p>{{ post.content }}</p>
+                    <p>Category: {{ post.category.name }}</p>
+                    <p>Published on: {{ post.created_at }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
-</ht
+</html>
