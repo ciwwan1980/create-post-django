@@ -9,6 +9,10 @@
 </head> 
 <body>
     <div class="container">
+        <a class="back-link" href="{% url 'post_list' %}">🏠 Back to Home Page</a>
+
+
+
         <h1>{{ post.title }}</h1>
         <img src="{{ post.image.url }}" alt="post_image">
         <p>{{ post.content }}</p>

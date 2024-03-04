@@ -10,6 +10,12 @@
 <body>
     <div class="container">
         <h1>Blog Posts</h1>
+
+        <!-- Search Form -->
+        <form method="GET" action="{% url 'post_list' %}">
+            <input type="text" name="search" placeholder="Search by title or content">
+            <button type="submit">Search</button>
+        </form>
         
         {% for post in posts %}
             <div class="post">

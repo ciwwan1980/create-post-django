@@ -4,9 +4,15 @@ from .models import Post
 from .forms import PostForm
 
 
+from django.shortcuts import render
+from .models import Post
+
 def post_list(request):
-    posts = Post.objects.all()
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    search_query = request.GET.get('search', '')
+    posts = Post.objects.filter(title__icontains=search_query)
+    context = {'posts': posts}
+    return render(request, 'blog/post_list.html', context)
+
 
 
 def news(request):
